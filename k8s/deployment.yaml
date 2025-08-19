@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: miniweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: miniweb
+  template:
+    metadata:
+      labels:
+        app: miniweb
+    spec:
+      containers:
+        - name: miniweb
+          image: docker.io/ureon/miniweb:1.0
+          ports:
+            - containerPort: 80
